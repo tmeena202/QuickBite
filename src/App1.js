@@ -2,21 +2,18 @@ import React, { StrictMode, Suspense, lazy, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
-import About from "./components/About";
+// import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { RouterProvider, createBrowserRouter, Outlet } from "react-router-dom";
 import UserContext from "./utils/userContext";
 import { useState } from "react";
-import Instamart from "./components/InstaMart";
 import Cart from "./components/Cart";
 import { Provider } from "react-redux";
 import appStore from "./utils/AppStore";
-
-const InstaMart = lazy(() => {
-  return import("./components/InstaMart");
-});
+import InstaMartContainer from "./components/Instamart/InstaMartContainer";
+import CategoryProducts from "./components/Instamart/CategoryProducts";
 
 const About = lazy(() => {
   return import("./components/About");
@@ -64,14 +61,7 @@ const appRouter = createBrowserRouter([
         path: "/contact",
         element: <Contact />,
       },
-      {
-        path: "/instmart",
-        element: (
-          <Suspense fallback={<h1>Loading ...</h1>}>
-            <Instamart />
-          </Suspense>
-        ),
-      },
+
       {
         path: "/restaurants/:resId",
         element: <RestaurantMenu />,
@@ -82,11 +72,21 @@ const appRouter = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "/instamart/",
+    element: <InstaMartContainer />, // Use the new layout here
+    errorElement: <Error />,
+    children: [],
+  },
+  {
+    path: "category/:categoryName/:nodeId",
+    element: <CategoryProducts />,
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <StrictMode>
-    <RouterProvider router={appRouter} />
-  </StrictMode>
+  // <StrictMode>
+  <RouterProvider router={appRouter} />
+  // </StrictMode>
 );

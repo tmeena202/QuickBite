@@ -34,6 +34,10 @@ const RestaurantMenu = () => {
   // console.log(categories);
   // console.log(resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
 
+  const handleCategoryClick = (index) => {
+    setShowIndex((prevIndex) => (prevIndex === index ? null : index));
+  };
+
   return (
     <div className="text-center">
       <h1 className="font-bold py-2 text-2xl">
@@ -50,7 +54,7 @@ const RestaurantMenu = () => {
           key={category?.card?.card?.title}
           data={category?.card?.card}
           showItems={index === showIndex ? true : false}
-          setShowIndex={() => setShowIndex(index)}
+          setShowIndex={() => handleCategoryClick(index)}
           dummy={Dummy}
         />
       ))}

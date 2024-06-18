@@ -6,3 +6,6 @@ export const LOGO_URL =
 
 export const MENU_API =
   "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.652&lng=77.1663&restaurantId=";
+
+export const INSTAMART_IMAGE_URL =
+  "https://instamart-media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_294/";

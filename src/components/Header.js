@@ -16,7 +16,7 @@ const Header = () => {
 
   //subscribing to store using selector.
   const cartItems = useSelector((store) => store.cart.items);
-  console.log(cartItems);
+  // console.log(cartItems);
 
   return (
     <div className="flex justify-between bg-pink-100 shadow-lg ">
@@ -29,7 +29,7 @@ const Header = () => {
             Net. Status: {onlineStatus ? "🟢" : "🔴"}{" "}
           </li>
           <li className="px-4 text-lg">
-            <Link to={"/instmart"}>InstaMart</Link>
+            <Link to={"/instamart"}>InstaMart</Link>
           </li>
           <li className="px-4 text-lg">
             <Link to={"/"}>Home</Link>

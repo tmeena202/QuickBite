@@ -32,7 +32,7 @@ const ItemList = ({ items, dummy }) => {
                 </span>
                 <br></br>
                 <span className="text-green-400 rounded-xl p-1">
-                  {" ⭐"} {item?.card?.info?.ratings?.aggregatedRating?.rating}
+                  {"⭐"} {item?.card?.info?.ratings?.aggregatedRating?.rating}
                 </span>
                 <span>
                   (
